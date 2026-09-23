@@ -1,22 +1,33 @@
+const addNewBook = document.querySelector("#addNewBook");
+const library = document.querySelector(".library");
+
 const myLibrary = [];
 
-// book generator
-
+// Book generator
 function Book(title, author, pages, status) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.status = status;
-  this.info = function () {
-    console.log(`${this.title} is written by me`);
-  };
 }
 
-const book1 = new Book("Harry Potter", "mayank", "297", false);
-book1.info();
-
-function addBookToLibrary() {
-  book1.push = myLibrary;
+// Adding book to library
+function addBookToLibrary(title, author, pages, status) {
+  const book = new Book(title, author, pages, status);
+  myLibrary.push(book);
 }
 
-console.log(myLibrary);
+// Add book as many as you want
+addBookToLibrary("Toon pur ka super hero", "Ajay Devgan", "293", false);
+
+// Display books from my library array into the HTML page
+myLibrary.forEach((book) => {
+  library.innerHTML += `
+  <div class="book">
+  <h2>${book.title}</h2>
+  <p>Author: ${book.author}</p>
+  <p>Pages: ${book.pages}</p>
+  <p>Status: ${book.status}</p>
+  </div>
+  `;
+});
