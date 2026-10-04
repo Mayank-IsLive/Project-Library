@@ -1,7 +1,26 @@
 const addNewBook = document.querySelector("#addNewBook");
 const library = document.querySelector(".library");
-
+const overlay = document.querySelector('.overlay');
+const overlayClose = document.querySelector('#closebtn');
 const myLibrary = []; // holds every book
+/** @type {HTMLFormElement} */
+const form = document.querySelector('#myform');
+
+
+
+
+
+// form open 
+addNewBook.addEventListener("click", () => {
+  overlay.classList.add("active");
+});
+
+overlayClose.addEventListener("click", () => {
+  overlay.classList.remove("active");
+});
+
+
+
 
 // Book generator
 function Book(title, author, pages, status) {
@@ -19,9 +38,27 @@ function addBookToLibrary(title, author, pages, status) {
 }
 
 // Add book as many as you want
-addBookToLibrary("Toon pur ka super hero", "Ajay Devgan", "293", false);
-addBookToLibrary("Mayank Saraswal")
 // console.log(myLibrary[0].id);
+
+
+
+
+
+
+// form 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const title = form.elements.bookName.value;
+  const author = form.elements.bookAuthor.value;
+  const pages = form.elements.pages.value;
+  const status = form.elements.readStatus.value;
+
+  addBookToLibrary(title, author, pages, status);
+  console.log(myLibrary);
+  displayLibrary();
+
+})
 
 // Display books from my library array into the HTML page
 function displayLibrary() {
@@ -36,11 +73,4 @@ function displayLibrary() {
     `;
   });
 }
-
-displayLibrary();
-
-
-
-
-// form 
 

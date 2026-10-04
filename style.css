@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 * {
   margin: 0;
@@ -11,102 +11,194 @@
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
-  padding: 1.5rem;
-  background: #000046; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #1cb5e0,
-    #000046
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #1cb5e0,
-    #000046
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+body {
+  padding: 1.5rem;
+  color: #f5f7ff;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(0, 229, 255, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(162, 0, 255, 0.14),
+      transparent 25%
+    ),
+    #070b14;
+}
+
+/* =========================
+MAIN CONTAINER
+========================= */
+
 .main-container {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
-  /* background-color: green; */
   max-width: 1500px;
   margin: 0 auto;
 }
 
+/* =========================
+HEADER
+========================= */
+
 .header {
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 50px;
-  background-color: rgb(245, 248, 249);
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 18px;
+
+  background: rgba(12, 18, 31, 0.75);
+  backdrop-filter: blur(15px);
+
+  box-shadow:
+    0 0 25px rgba(0, 229, 255, 0.08),
+    inset 0 0 20px rgba(255, 255, 255, 0.02);
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 600;
-  color: black;
+  color: #ffffff;
   cursor: pointer;
+
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.7);
 }
+
+/* =========================
+ADD BOOK BUTTON
+========================= */
 
 #addNewBook {
-  padding: 6px 12px;
-  border-radius: 50px;
-  outline: none;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  background-color: rgb(3, 164, 204);
+  padding: 9px 18px;
+
+  border: 1px solid #00e5ff;
+  border-radius: 10px;
+
+  background: rgba(0, 229, 255, 0.08);
+  color: #00e5ff;
+
+  font-size: 14px;
   font-weight: 600;
-  color: white;
+
+  cursor: pointer;
+
   transition: all 0.3s ease;
 }
-/* hover effect */
 
 #addNewBook:hover {
-  transform: translateY(-4px);
+  background: #00e5ff;
+  color: #061018;
+
+  box-shadow:
+    0 0 10px #00e5ff,
+    0 0 25px rgba(0, 229, 255, 0.5);
+
+  transform: translateY(-2px);
 }
 
 #addNewBook:active {
   transform: translateY(0);
 }
 
-/* Section - Display Container */
-.library {
-  margin-top: 4rem;
-  /* background-color: green; */
-  padding-left: 6rem;
-}
+/* =========================
+LIBRARY
+========================= */
 
 .library {
+  margin-top: 3rem;
+
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+/* =========================
+BOOK CARD
+========================= */
+
+.book {
+  min-height: 280px;
+
+  padding: 25px;
+
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-}
 
-.book {
-  border: 1px solid #ccc;
-}
-
-.book {
-  height: 300px;
-  width: 250px;
-}
-
-.book {
   text-align: center;
-  align-content: center;
+
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: 16px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(15, 25, 42, 0.95),
+    rgba(8, 13, 25, 0.95)
+  );
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.35),
+    inset 0 0 20px rgba(0, 229, 255, 0.025);
+
+  transition: all 0.3s ease;
 }
 
-/* form Container */
+.book:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(0, 229, 255, 0.7);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 229, 255, 0.15);
+}
+
+.book h2 {
+  margin-bottom: 20px;
+
+  font-size: 21px;
+  font-weight: 600;
+
+  color: #ffffff;
+
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+}
+
+.book p {
+  width: 100%;
+
+  margin: 6px 0;
+  padding: 8px 12px;
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.035);
+
+  color: #aeb8c9;
+
+  font-size: 14px;
+}
+
+.book p strong {
+  color: #ffffff;
+}
+
+/* =========================
+FORM OVERLAY
+========================= */
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -115,115 +207,260 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  /* display: none; */
+  background: rgba(2, 5, 12, 0.65);
+
+  backdrop-filter: blur(10px);
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.3s ease;
+
+  z-index: 999;
 }
+
+/* =========================
+FORM
+========================= */
 
 .form {
-  margin: 0 auto;
-  background: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.34);
-  max-width: 100%;
-  width: 500px;
+  width: min(500px, 92%);
+
+  background: linear-gradient(
+    145deg,
+    rgba(16, 24, 40, 0.98),
+    rgba(7, 12, 23, 0.98)
+  );
+
+  border: 1px solid rgba(0, 229, 255, 0.3);
+
+  border-radius: 18px;
+
   overflow: hidden;
-  margin-top: 4rem;
-  position: fixed;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 1000;
-  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.34);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 30px rgba(0, 229, 255, 0.1);
 }
 
+/* =========================
+FORM HEADER
+========================= */
+
 .form-header {
-  margin-bottom: 20px;
-  background-color: #eee;
-  border-bottom: 1px solid #ccc;
-  padding: 20px 30px;
+  padding: 20px 25px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .form-header h2 {
-  font-size: 28px;
-  text-align: center;
-  width: 100%;
-}
-
-.form-control {
-  margin-bottom: 20px;
-  margin: 30px;
-}
-.form-control label {
+  font-size: 22px;
   font-weight: 600;
-  font-size: 19px;
-  margin: 0;
-}
-.form-control input {
-  margin-bottom: 20px;
-  display: block;
-  margin-top: 12px;
-  width: 100%;
-  padding: 20px;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.34);
+
+  color: #ffffff;
+
+  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
 }
 
-/* form buttons */
-.form-control button {
-  padding: 20px;
-  width: 100%;
-  font-size: 20px;
-  font-weight: 600;
-  background-color: #900cbc;
-  color: white;
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.34);
-  transition: transform 0.3s ease;
-  margin-top: 20px;
-}
-
-.form-control button:hover {
-  transform: scale(1.02);
-}
-.form-control button:active {
-  transform: scale(1);
-}
+/* =========================
+CLOSE BUTTON
+========================= */
 
 #closebtn {
-  padding: 5px 15px;
-  font-size: 20px;
-  cursor: pointer;
-  background-color: red;
-  /* border: 2px solid black; */
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255, 70, 100, 0.5);
+  border-radius: 8px;
+
+  background: rgba(255, 50, 80, 0.08);
+
+  color: #ff607d;
+
+  font-size: 16px;
   font-weight: 600;
-  border-radius: 5px;
-  border: none;
+
+  cursor: pointer;
+
   transition: all 0.3s ease;
 }
 
 #closebtn:hover {
+  background: #ff496c;
+  color: white;
+
+  box-shadow: 0 0 12px rgba(255, 73, 108, 0.6);
+
   transform: scale(1.05);
 }
+
 #closebtn:active {
-  transform: scale(1);
+  transform: scale(0.95);
 }
 
-/* extra */
+/* =========================
+FORM CONTENT
+========================= */
+
+.form-control {
+  padding: 25px;
+}
+
+.form-control form > div {
+  margin-bottom: 18px;
+}
+
+.form-control label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #dce4f2;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* =========================
+INPUTS + SELECT
+========================= */
+
+.form-control input,
+.form-control select {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+.form-control input::placeholder {
+  color: #687387;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+  border-color: #00e5ff;
+
+  background: rgba(0, 229, 255, 0.04);
+
+  box-shadow:
+    0 0 0 2px rgba(0, 229, 255, 0.08),
+    0 0 15px rgba(0, 229, 255, 0.12);
+}
+
+/* SELECT */
+
+.form-control select {
+  cursor: pointer;
+}
+
+.form-control select option {
+  background: #101827;
+  color: white;
+}
+
+/* =========================
+SUBMIT BUTTON
+========================= */
+
+#submit-btn {
+  width: 100%;
+
+  margin-top: 8px;
+  padding: 13px;
+
+  border: 1px solid #a855f7;
+  border-radius: 9px;
+
+  background: rgba(168, 85, 247, 0.1);
+
+  color: #c084fc;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+  background: #a855f7;
+  color: white;
+
+  box-shadow:
+    0 0 10px #a855f7,
+    0 0 25px rgba(168, 85, 247, 0.4);
+
+  transform: translateY(-2px);
+}
+
+#submit-btn:active {
+  transform: translateY(0);
+}
+
+/* =========================
+READ STATUS
+========================= */
 
 #read {
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
-#readStatus {
-  width: 100%;
-  padding: 20px;
+/* =========================
+RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 0.9rem 1rem;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  #addNewBook {
+    padding: 8px 12px;
+  }
+
+  .library {
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+
+  .form-control {
+    padding: 20px;
+  }
+}
+
+.overlay.active {
+  visibility: visible;
+  opacity: 1;
 }
