@@ -57,6 +57,8 @@ form.addEventListener('submit', (e) => {
   addBookToLibrary(title, author, pages, status);
   console.log(myLibrary);
   displayLibrary();
+  form.reset();
+  overlay.classList.remove("active");
 
 })
 
