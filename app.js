@@ -49,8 +49,8 @@ function addBookToLibrary(title, author, pages, status) {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const title = form.elements.bookName.value;
-  const author = form.elements.bookAuthor.value;
+  const title = form.elements.bookName.value.trim();
+  const author = form.elements.bookAuthor.value.trim();
   const pages = form.elements.pages.value;
   const status = form.elements.readStatus.value;
 
